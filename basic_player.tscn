@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ik81h2ecd2a0"]
+
+[ext_resource type="Script" path="res://basic_player.gd" id="1_sr7cp"]
+[ext_resource type="Texture2D" uid="uid://bjknnwe2xs6re" path="res://icon.svg" id="2_egyuy"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1xkd1"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="basic_player" type="CharacterBody2D"]
+script = ExtResource("1_sr7cp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_egyuy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1xkd1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -92.0
+offset_right = 63.0
+offset_bottom = -69.0
+text = "player"
+horizontal_alignment = 1
+vertical_alignment = 1
