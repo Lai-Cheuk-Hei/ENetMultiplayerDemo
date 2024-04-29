@@ -7,14 +7,17 @@
 script = ExtResource("1_b3pgt")
 PlayerScene = ExtResource("2_abvnl")
 
-[node name="PlayerList" type="VBoxContainer" parent="."]
+[node name="Header" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(300, 25)
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 60.0
-offset_bottom = 60.0
-
-[node name="Header" type="RichTextLabel" parent="PlayerList"]
-custom_minimum_size = Vector2(300, 25)
-layout_mode = 2
+offset_right = 320.0
+offset_bottom = 45.0
 bbcode_enabled = true
 text = "[b]Current Players:[/b]"
+
+[node name="PlayerList" type="ScrollContainer" parent="."]
+offset_left = 20.0
+offset_top = 45.0
+offset_right = 320.0
+offset_bottom = 335.0
