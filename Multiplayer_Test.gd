@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
  
 var peer = ENetMultiplayerPeer.new()
 @export var player_scene: PackedScene
@@ -18,7 +18,7 @@ func _ready():
 func hostGame():
 	var error = peer.create_server(port)
 	if error != OK:
-		print("cannot host: " + error)
+		print("cannot host: " + str(error))
 		return
 	else:
 		print("Now hosting on: " + Address + ":" + str(port))
@@ -61,16 +61,15 @@ func SendPlayerInformation(name, id):
 		for i in GameManager.Players:
 			SendPlayerInformation.rpc(GameManager.Players[i].name, i)
 			
-	for i in $PlayerList.get_children():
-		if i != $PlayerList/Header:
-			i.queue_free()
+	for i in $PlayerList/VBoxContainer.get_children():
+		i.queue_free()
 		
 	for i in GameManager.Players:
 		var label = Label.new()
 		label.text = GameManager.Players[i].name
 		if(multiplayer.get_unique_id() == GameManager.Players[i].id):
 			label.add_theme_color_override("font_color", Color(1,1,0,1))
-		$PlayerList.add_child(label)
+		$PlayerList/VBoxContainer.add_child(label)
  
 
 func _on_join_pressed():

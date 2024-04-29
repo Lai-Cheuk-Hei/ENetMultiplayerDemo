@@ -3,7 +3,13 @@
 [ext_resource type="Script" path="res://game_scene.gd" id="1_b3pgt"]
 [ext_resource type="PackedScene" uid="uid://ik81h2ecd2a0" path="res://basic_player.tscn" id="2_abvnl"]
 
-[node name="GameScene" type="Node2D"]
+[node name="GameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_b3pgt")
 PlayerScene = ExtResource("2_abvnl")
 
@@ -21,3 +27,6 @@ offset_left = 20.0
 offset_top = 45.0
 offset_right = 320.0
 offset_bottom = 335.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerList"]
+layout_mode = 2

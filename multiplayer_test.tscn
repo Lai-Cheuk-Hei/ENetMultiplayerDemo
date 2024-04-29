@@ -3,7 +3,13 @@
 [ext_resource type="Script" path="res://Multiplayer_Test.gd" id="1_y4w2h"]
 [ext_resource type="PackedScene" uid="uid://ik81h2ecd2a0" path="res://basic_player.tscn" id="2_u8xdv"]
 
-[node name="Multiplayer_Test" type="Node2D"]
+[node name="Multiplayer_Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_y4w2h")
 player_scene = ExtResource("2_u8xdv")
 
@@ -52,6 +58,9 @@ offset_left = 150.0
 offset_top = 275.0
 offset_right = 450.0
 offset_bottom = 515.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerList"]
+layout_mode = 2
 
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
