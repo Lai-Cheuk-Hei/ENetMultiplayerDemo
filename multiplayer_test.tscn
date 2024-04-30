@@ -14,55 +14,103 @@ script = ExtResource("1_y4w2h")
 player_scene = ExtResource("2_u8xdv")
 
 [node name="Host" type="Button" parent="."]
-offset_left = 120.0
-offset_top = 160.0
-offset_right = 315.0
-offset_bottom = 205.0
+offset_left = 430.0
+offset_top = 62.0
+offset_right = 561.0
+offset_bottom = 107.0
 text = "Host
 "
 
 [node name="Join" type="Button" parent="."]
-offset_left = 340.0
-offset_top = 160.0
-offset_right = 535.0
-offset_bottom = 205.0
+offset_left = 430.0
+offset_top = 134.0
+offset_right = 561.0
+offset_bottom = 179.0
 text = "Join
 "
 
-[node name="TextEdit" type="LineEdit" parent="."]
-offset_left = 120.0
-offset_top = 83.0
-offset_right = 536.0
-offset_bottom = 128.0
+[node name="NameEdit" type="LineEdit" parent="."]
+offset_left = 85.0
+offset_top = 62.0
+offset_right = 407.0
+offset_bottom = 107.0
 placeholder_text = "your name here"
 alignment = 1
 
+[node name="AddressEdit" type="LineEdit" parent="."]
+offset_left = 85.0
+offset_top = 134.0
+offset_right = 302.0
+offset_bottom = 179.0
+text = "127.0.0.1"
+placeholder_text = "Server address here"
+alignment = 1
+
+[node name="Port Edit" type="LineEdit" parent="."]
+offset_left = 323.0
+offset_top = 134.0
+offset_right = 407.0
+offset_bottom = 179.0
+text = "8910"
+placeholder_text = "Server address here"
+alignment = 1
+
 [node name="StartGame" type="Button" parent="."]
-offset_left = 219.0
-offset_top = 541.0
-offset_right = 465.0
-offset_bottom = 626.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -117.0
+offset_right = 123.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+disabled = true
 text = "Start Game"
 
 [node name="Header" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(300, 25)
-offset_left = 150.0
-offset_top = 250.0
-offset_right = 450.0
-offset_bottom = 275.0
+offset_left = 85.0
+offset_top = 229.0
+offset_right = 561.0
+offset_bottom = 254.0
 bbcode_enabled = true
 text = "[b]Current Players:[/b]"
 
 [node name="PlayerList" type="ScrollContainer" parent="."]
-offset_left = 150.0
-offset_top = 275.0
-offset_right = 450.0
-offset_bottom = 515.0
+offset_left = 85.0
+offset_top = 254.0
+offset_right = 561.0
+offset_bottom = 494.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerList"]
 layout_mode = 2
 
+[node name="Colon" type="Label" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 134.0
+offset_right = 323.0
+offset_bottom = 179.0
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 494.0
+offset_right = 561.0
+offset_bottom = 517.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
-[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]
+[connection signal="text_changed" from="AddressEdit" to="." method="_on_address_edit_text_changed"]
+[connection signal="text_changed" from="Port Edit" to="." method="_on_port_edit_text_changed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
